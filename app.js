@@ -1,17 +1,8 @@
-var myApp = angular.module('myApp', [
-  'ngRoute',
-  'myControllers'
-]);
+var myApp = angular.module('myApp', []);
 
-myApp.config(['$routeProvider', function($routeProvider) {
-  $routeProvider
-    .when('/', {
-      templateUrl: 'js/partials/search.html',
-      controller: 'SearchController'
-    })
-    .when('/details/:itemId', {
-      templateUrl: 'js/partials/details.html',
-      controller: 'DetailsController'
-    });
-}]);
+myApp.controller('MyController', function MyController($scope, $http) {
+  $http.get('js/data.json').then(function(response){
+      $scope.artists = response.data;
+  }); 
+});
 
