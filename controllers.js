@@ -26,5 +26,5 @@ function MyController($scope, $http, $routeParams) {
       $scope.nextItem = 0;
     }
 
-});
+  });
 });
